@@ -9,7 +9,7 @@ admin.initializeApp({
 const SENSOR_THRESHOLDS = {
   temperature: { safe: [20, 30], warning: [10, 20, 30, 35], danger: [0, 10, 35, 40] },
   humidity: { safe: [50, 70], warning: [30, 50, 70, 90], danger: [0, 30, 90, 100] },
-  ph: { safe: [6.5, 8.5], warning: [5.5, 6.5, 8.5, 9.5], danger: [0, 5.5, 9.5, 14] },
+  pH: { safe: [6.5, 8.5], warning: [5.5, 6.5, 8.5, 9.5], danger: [0, 5.5, 9.5, 14] },
 };
 
 type SensorType = keyof typeof SENSOR_THRESHOLDS;
@@ -24,7 +24,7 @@ const checkThreshold = (type: SensorType, value: number): "safe" | "warning" | "
 export const monitorSensorData = onValueCreated(
   {
     region: "asia-southeast1",
-    ref: "sensors/{sensorType}/{timestamp}",
+    ref: "irrigationSystemLogs/{sensorType}/{timestamp}",
   },
   async (event) => {
     const sensorType = event.params?.sensorType as SensorType;
