@@ -1,8 +1,9 @@
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getDatabase } from 'firebase/database';
-import { initializeAuth, getReactNativePersistence } from "firebase/auth";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth";
+import { getMessaging, isSupported } from "firebase/messaging";
 
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD5CaRC6JOT1czTvz-mNtfpCgfIyKmg-nc",
   authDomain: "growsync-e8713.firebaseapp.com",
@@ -13,8 +14,25 @@ const firebaseConfig = {
   appId: "1:329464030712:web:1b414e8c50989f73de220d",
 };
 
+// Initialize Firebase app
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const database = getDatabase(app);
-const auth = initializeAuth(app, {persistence: getReactNativePersistence(AsyncStorage)});
 
-export { app, database, auth };
+// Initialize Firebase services
+const database = getDatabase(app);
+const auth = getAuth(app);
+
+// Initialize Firebase Messaging with async support check
+let messaging: ReturnType<typeof getMessaging> | null = null;
+
+(async () => {
+  const supported = await isSupported();
+  if (supported) {
+    messaging = getMessaging(app);
+    console.log("Firebase Messaging is supported.");
+  } else {
+    console.warn("Firebase Messaging is not supported in this environment.");
+  }
+})();
+
+// Export Firebase services
+export { app, database, auth, messaging };

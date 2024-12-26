@@ -84,10 +84,22 @@ function RootLayoutNav() {
   useEffect(() => {
     const setupFCM = async () => {
       try {
+        console.log("Setting up FCM...");
         await initializeFCM(); // Initialize FCM for permissions and notifications
-        await subscribeToFCMTopic("sensor-alerts"); // Subscribe to topic for sensor alerts
+        await subscribeToFCMTopic("sensor-alerts"); // Subscribe to topic for notifications
+        console.log("FCM setup completed.");
       } catch (error) {
-        console.error("Error setting up FCM:", error);
+        // Narrow down 'unknown' type to handle errors gracefully
+        if (error instanceof Error) {
+          console.error("Error setting up FCM:", error.message);
+          Alert.alert(
+            "Notification Error",
+            `Failed to initialize notifications: ${error.message}`
+          );
+        } else {
+          console.error("Unexpected error:", error);
+          Alert.alert("Notification Error", "An unexpected error occurred.");
+        }
       }
     };
 
@@ -96,11 +108,13 @@ function RootLayoutNav() {
     }
   }, [user]);
 
+
+  // Redirect user based on authentication state
   useEffect(() => {
     if (!user) {
       router.replace("/(auth)/authentication"); // Redirect to login
     } else {
-      router.replace("/(auth)/(tabs)/dashboard");
+      router.replace("/(auth)/(tabs)/dashboard"); // Redirect to dashboard
     }
   }, [user]);
 
