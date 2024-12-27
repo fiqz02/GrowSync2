@@ -118,8 +118,3 @@ GrowSync is an advanced smart irrigation system designed to optimize water usage
 
 ## Contributing
 Feel free to fork this project, make your changes, and submit a pull request. Ensure all features are tested before submitting.
-
----
-
-## License
-This project is licensed under the MIT License.
