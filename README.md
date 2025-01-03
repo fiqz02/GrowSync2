@@ -33,6 +33,12 @@ GrowSync is an advanced smart irrigation system designed to optimize water usage
    - View user-specific details such as email.
    - Logout functionality.
 
+### 6. **Alert Notifications**
+   - Receive real-time push notifications for critical events, such as:
+     - Extreme sensor readings (e.g., temperature, humidity, pH levels).
+     - Completion of irrigation cycles.
+   - Notifications are powered by Firebase Cloud Messaging (FCM).
+
 ---
 
 ## Technology Stack
@@ -83,34 +89,19 @@ GrowSync is an advanced smart irrigation system designed to optimize water usage
   - `servoControl`: Stores servo motor angle and timer data.
   - `irrigationSystemLogs`: Logs sensor data (temperature, humidity, etc.).
   - `users`: Contains user roles and email data.
+- **Cloud Messaging**:
+  - Sends real-time notifications to users.
 
 ---
 
 ## Screenshots
-*(Add images showcasing the app's interface and functionalities)*
 
----
-
-## Getting Started
-
-### Prerequisites
-- Node.js & npm
-- Expo CLI
-- Firebase account
-
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo-url.git
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Expo development server:
-   ```bash
-   npm start
-   ```
-4. Connect Firebase:
-   - Configure `firebase.config.ts` with your Firebase project credentials.
-
+![WhatsApp Image 2025-01-03 at 11 46 19_9da5c566](https://github.com/user-attachments/assets/64e30aae-bc3a-433a-9180-800c64492509)
+![WhatsApp Image 2025-01-03 at 11 46 19_4c62ca0c](https://github.com/user-attachments/assets/6c0bc7ea-3338-48b2-a551-7ee8f17289cd)
+![WhatsApp Image 2025-01-03 at 11 46 19_f6606bec](https://github.com/user-attachments/assets/b485ed83-581b-41af-ab84-bb26822a8a3f)
+![WhatsApp Image 2025-01-03 at 11 46 19_46400369](https://github.com/user-attachments/assets/4c73c205-c1b9-4bb0-af4a-e40cf2e2810c)
+![WhatsApp Image 2025-01-03 at 11 46 20_737de412](https://github.com/user-attachments/assets/45d4bd21-75f7-417b-ba2c-9de69c441416)
+![WhatsApp Image 2025-01-03 at 11 46 20_a1146276](https://github.com/user-attachments/assets/2a986e50-5ce0-48d0-ba49-3806f533b61c)
+![WhatsApp Image 2025-01-03 at 11 46 20_c67393d4](https://github.com/user-attachments/assets/982b3448-95da-4d0f-8cce-85052a5d2000)
+![WhatsApp Image 2025-01-03 at 11 46 21_d7f4d4af](https://github.com/user-attachments/assets/bc6cf1ef-9643-45a8-ae2f-71a8fe021547)
+![WhatsApp Image 2025-01-03 at 11 46 21_194f72ad](https://github.com/user-attachments/assets/2a6eb820-e0ce-4765-859c-93e1127ae01e)
