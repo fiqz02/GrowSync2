@@ -114,7 +114,3 @@ GrowSync is an advanced smart irrigation system designed to optimize water usage
 4. Connect Firebase:
    - Configure `firebase.config.ts` with your Firebase project credentials.
 
----
-
-## Contributing
-Feel free to fork this project, make your changes, and submit a pull request. Ensure all features are tested before submitting.
